@@ -1,0 +1,7 @@
+.gamesContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  column-gap: 20px;
+  row-gap: 80px;
+}

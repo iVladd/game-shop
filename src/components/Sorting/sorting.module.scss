@@ -1,0 +1,48 @@
+.sort {
+  position: relative;
+  .sortingText {
+    display: inline;
+    font-size: 18px;
+  }
+
+  .sortingButton {
+    cursor: pointer;
+    font-size: 18px;
+    color: rgb(187, 100, 180);
+    font-weight: lighter;
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed rgb(187, 100, 180);
+    display: inline;
+  }
+
+  .sortPopup {
+    font-size: 15px;
+    margin-top: 10px;
+    position: absolute;
+    right: 0;
+    .sortPopupList {
+      min-width: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      list-style: none;
+      background-color: white;
+      padding: 20px 0;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+      .sortPopupItem {
+        cursor: pointer;
+        background-color: white;
+        padding: 12px 20px;
+        letter-spacing: 0.5px;
+        &:hover {
+          background-color: rgba(254, 95, 30, 0.05);
+        }
+        &.active {
+          font-weight: bold;
+          color: rgb(187, 100, 180);
+          background-color: rgba(254, 95, 30, 0.05);
+        }
+      }
+    }
+  }
+}

@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import Cart from "./pages/Cart";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import SingleGame from "./pages/SingleGame";
+import { fetchGames } from "./features/games/gamesSlice";
+import "./scss/app.scss";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGames());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/game/:id" element={<SingleGame />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }

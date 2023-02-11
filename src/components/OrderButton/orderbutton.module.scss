@@ -1,0 +1,28 @@
+.gameOrderBtn {
+  cursor: pointer;
+  border: 1px solid rgb(187, 100, 180);
+  color: rgb(187, 100, 180);
+  height: 40px;
+  background-color: transparent;
+  padding: 0 15px;
+  border-radius: 30px;
+  &:hover {
+    background-color: rgb(187, 100, 180);
+    color: white;
+    .gameOrderCount {
+      background-color: #fff;
+      color: rgb(187, 100, 180);
+    }
+  }
+  .gameOrderCount {
+    color: white;
+    display: inline-flex;
+    margin-left: 5px;
+    background-color: rgb(187, 100, 180);
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    justify-content: center;
+    align-items: center;
+  }
+}
