@@ -1,4 +1,42 @@
 .gameContainer {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
+  .gameImage {
+    width: 350px;
+  }
+  .gameInfo {
+    width: 40%;
+    margin-left: 50px;
+    .gameTitle {
+      font-size: 35px;
+    }
+    .gameGenres {
+      margin-top: 20px;
+      .gameGenre {
+        margin-right: 10px;
+      }
+    }
+    .gameDescription {
+      margin-top: 25px;
+      .descriptionLabel {
+        display: block;
+        font-size: 20px;
+      }
+      .descriptionText {
+        margin-top: 10px;
+        font-size: 20px;
+      }
+    }
+    .gameOrder {
+      margin-top: 50px;
+      display: flex;
+      align-items: center;
+      .gamePrice {
+        font-size: 30px;
+        font-weight: bold;
+        margin-right: 30px;
+      }
+    }
+  }
 }

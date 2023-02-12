@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setFilterByCategory } from "../../features/filters/filtersSlice";
+import GameGenre from "../GameGenre";
 import OrderButton from "../OrderButton";
 import styles from "./gamecard.module.scss";
 
@@ -24,13 +25,7 @@ const GameCard = ({ game }) => {
       <h4 className={styles.gameTitle}>{game.title}</h4>
       <div className={styles.gameGenres}>
         {game.genres.map((genre, i) => (
-          <span
-            key={i}
-            className={styles.gameGenre}
-            onClick={(e) => handleGenreClick(e, genre)}
-          >
-            {genre}
-          </span>
+          <GameGenre key={i} genre={genre} onClick={handleGenreClick} />
         ))}
       </div>
       <div className={styles.gameOrder}>

@@ -12,16 +12,8 @@
   }
   .gameGenres {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 20px;
-    .gameGenre {
-      background-color: rgb(245, 245, 245);
-      padding: 8px 25px;
-      border-radius: 5px;
-      &:hover {
-        background-color: rgb(202, 202, 202);
-      }
-    }
   }
   .gameOrder {
     display: flex;

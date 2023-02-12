@@ -1,12 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
+import { Dna } from "react-loader-spinner";
 import { useSelector } from "react-redux";
 import Categories from "../components/Categories";
 import GameCard from "../components/GameCard";
+import Pagination from "../components/Pagination";
 import Sorting from "../components/Sorting";
 import styles from "../scss/components/home.module.scss";
+import { paginate } from "../utils/paginate";
 
 const Home = () => {
   const games = useSelector((state) => state.games.games[0]);
+  const [currentPage, setCurrentPage] = useState(3);
+  const pageSize = 6;
+  let pagesCount;
+  let paginated;
+
+  if (games) {
+    pagesCount = Math.ceil(games.length / pageSize);
+    paginated = paginate(games, currentPage, pageSize);
+  }
+
+  console.log(pagesCount);
+
+  if (!games) {
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: "100px",
+        }}
+        className="dna-wrapper"
+      >
+        <Dna
+          visible={true}
+          height="200"
+          width="200"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -21,7 +60,11 @@ const Home = () => {
         <Sorting />
       </div>
       <div className={styles.gamesContainer}>
-        {games && games.map((game) => <GameCard key={game.id} game={game} />)}
+        {paginated &&
+          paginated.map((game) => <GameCard key={game.id} game={game} />)}
+      </div>
+      <div className={styles.pagination}>
+        <Pagination pagesCount={pagesCount} />
       </div>
     </>
   );
