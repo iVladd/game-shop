@@ -10,8 +10,8 @@ import { paginate } from "../utils/paginate";
 
 const Home = () => {
   const games = useSelector((state) => state.games.games[0]);
-  const [currentPage, setCurrentPage] = useState(3);
-  const pageSize = 6;
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 4;
   let pagesCount;
   let paginated;
 
@@ -20,7 +20,15 @@ const Home = () => {
     paginated = paginate(games, currentPage, pageSize);
   }
 
-  console.log(pagesCount);
+  const handlePageChange = (value) => {
+    if (value === "forward") {
+      setCurrentPage((prev) => prev + 1);
+    } else if (value === "back") {
+      setCurrentPage((prev) => prev - 1);
+    } else {
+      setCurrentPage(value);
+    }
+  };
 
   if (!games) {
     return (
@@ -64,7 +72,11 @@ const Home = () => {
           paginated.map((game) => <GameCard key={game.id} game={game} />)}
       </div>
       <div className={styles.pagination}>
-        <Pagination pagesCount={pagesCount} />
+        <Pagination
+          pagesCount={pagesCount}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
       </div>
     </>
   );

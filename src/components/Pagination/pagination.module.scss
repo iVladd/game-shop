@@ -1,3 +1,59 @@
-button {
-  background: #000;
+.paginationContainer {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 300px;
+  .backButton,
+  .forwardButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+    border: 1px solid rgb(187, 100, 180);
+    color: rgb(187, 100, 180);
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 10px;
+    background-color: transparent;
+    &:hover {
+      background-color: rgb(187, 100, 180);
+      color: white;
+    }
+    &:disabled {
+      border-color: lighten($color: rgb(187, 100, 180), $amount: 30);
+      color: lighten($color: rgb(187, 100, 180), $amount: 30);
+      &:hover {
+        cursor: auto;
+        background-color: transparent;
+      }
+    }
+  }
+  .backButton {
+    margin-right: 10px;
+  }
+  .paginationItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid rgb(187, 100, 180);
+    color: rgb(187, 100, 180);
+    height: 40px;
+    width: 40px;
+    padding: 0 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+    &.active {
+      background-color: rgb(187, 100, 180);
+      color: white;
+    }
+    &:hover {
+      background-color: rgb(187, 100, 180);
+      color: white;
+    }
+  }
 }
+
+// .paginationItem .active {
+//   background-color: #333;
+// }

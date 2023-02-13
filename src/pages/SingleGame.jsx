@@ -1,15 +1,26 @@
 import React from "react";
 import { Dna } from "react-loader-spinner";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import GameGenre from "../components/GameGenre";
 import OrderButton from "../components/OrderButton";
+import { addItem } from "../features/cart/cartSlice";
 import styles from "../scss/components/singlegame.module.scss";
 
 const SingleGame = () => {
+  const dispatch = useDispatch();
   const gameId = useParams().id;
   const gamesList = useSelector((state) => state.games.games[0]);
   const game = gamesList && gamesList.find((game) => game.id === gameId);
+
+  const cartItem = useSelector((state) =>
+    state.cart.items.find((item) => item.id === game.id)
+  );
+  const addedCount = cartItem ? cartItem.count : 0;
+
+  const handleOrderClick = (game) => {
+    dispatch(addItem(game));
+  };
 
   console.log(game);
 
@@ -59,7 +70,10 @@ const SingleGame = () => {
         </div>
         <div className={styles.gameOrder}>
           <span className={styles.gamePrice}>{game.price} ₴</span>
-          <OrderButton />
+          <OrderButton
+            orderCounts={addedCount}
+            onClick={() => handleOrderClick(game)}
+          />
         </div>
       </div>
     </div>

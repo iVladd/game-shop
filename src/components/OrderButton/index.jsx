@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./orderbutton.module.scss";
 
-const OrderButton = () => {
-  const [orderCount, setOrderCount] = useState(0);
-
+const OrderButton = ({ onClick, orderCounts }) => {
   const handleClick = (e) => {
     e.stopPropagation();
-    setOrderCount((prev) => prev + 1);
+    onClick();
   };
 
   return (
     <button className={styles.gameOrderBtn} onClick={(e) => handleClick(e)}>
       Добавить в корзину{" "}
-      {orderCount > 0 && (
-        <span className={styles.gameOrderCount}>{orderCount}</span>
+      {orderCounts > 0 && (
+        <span className={styles.gameOrderCount}>{orderCounts}</span>
       )}
     </button>
   );
