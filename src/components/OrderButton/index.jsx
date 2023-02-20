@@ -1,7 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styles from "./orderbutton.module.scss";
 
-const OrderButton = ({ onClick, orderCounts }) => {
+const OrderButton = ({ onClick, game }) => {
+  const cartItem = useSelector((state) =>
+    state.cart.items.find((item) => item.id === game.id)
+  );
+  const addedCount = cartItem ? cartItem.count : 0;
+
   const handleClick = (e) => {
     e.stopPropagation();
     onClick();
@@ -10,8 +16,8 @@ const OrderButton = ({ onClick, orderCounts }) => {
   return (
     <button className={styles.gameOrderBtn} onClick={(e) => handleClick(e)}>
       Добавить в корзину{" "}
-      {orderCounts > 0 && (
-        <span className={styles.gameOrderCount}>{orderCounts}</span>
+      {addedCount > 0 && (
+        <span className={styles.gameOrderCount}>{addedCount}</span>
       )}
     </button>
   );

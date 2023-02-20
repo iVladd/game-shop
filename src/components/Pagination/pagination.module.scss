@@ -1,7 +1,8 @@
 .paginationContainer {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  min-width: 300px;
+  gap: 5px;
   .backButton,
   .forwardButton {
     display: flex;

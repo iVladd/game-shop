@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./pagination.module.scss";
 
-const Pagination = ({ pagesCount, currentPage, onPageChange }) => {
-  const [items, setItems] = useState(
-    Array.from({ length: pagesCount }, (_, i) => i + 1)
-  );
+const Pagination = ({
+  itemsCount,
+  pageSize,
+  currentPage,
+  onPageChange,
+  topMargin = 80,
+}) => {
+  const pagesCount = Math.ceil(itemsCount / pageSize);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    setItems(Array.from({ length: pagesCount }, (_, i) => i + 1));
+    onPageChange(1);
+  }, [pagesCount, onPageChange]);
 
   if (items.length > 10) {
     const newItems = [...items].splice(0, 8);
@@ -12,12 +22,15 @@ const Pagination = ({ pagesCount, currentPage, onPageChange }) => {
     setItems(newItems);
   }
 
-  if (items.length === 1) {
+  if (items.length <= 1) {
     return null;
   }
 
   return (
-    <div className={styles.paginationContainer}>
+    <div
+      className={styles.paginationContainer}
+      style={{ marginTop: topMargin }}
+    >
       <button
         className={styles.backButton}
         onClick={() => onPageChange("back")}

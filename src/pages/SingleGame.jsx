@@ -13,11 +13,6 @@ const SingleGame = () => {
   const gamesList = useSelector((state) => state.games.games[0]);
   const game = gamesList && gamesList.find((game) => game.id === gameId);
 
-  const cartItem = useSelector((state) =>
-    state.cart.items.find((item) => item.id === game.id)
-  );
-  const addedCount = cartItem ? cartItem.count : 0;
-
   const handleOrderClick = (game) => {
     dispatch(addItem(game));
   };
@@ -70,10 +65,7 @@ const SingleGame = () => {
         </div>
         <div className={styles.gameOrder}>
           <span className={styles.gamePrice}>{game.price} ₴</span>
-          <OrderButton
-            orderCounts={addedCount}
-            onClick={() => handleOrderClick(game)}
-          />
+          <OrderButton game={game} onClick={() => handleOrderClick(game)} />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Dna } from "react-loader-spinner";
 import { useSelector } from "react-redux";
 import Categories from "../components/Categories";
@@ -7,20 +7,38 @@ import Pagination from "../components/Pagination";
 import Sorting from "../components/Sorting";
 import styles from "../scss/components/home.module.scss";
 import { paginate } from "../utils/paginate";
+import { sorting } from "../utils/sorting";
 
 const Home = () => {
-  const games = useSelector((state) => state.games.games[0]);
+  const games = useSelector((state) => state.games.games[0]) || [];
+  const filterByName = useSelector((state) => state.filters.filterByName);
+  const filterByCategory = useSelector(
+    (state) => state.filters.filterByCategory
+  );
+  const sortProperty = useSelector((state) => state.filters.sort.sortProperty);
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 4;
-  let pagesCount;
-  let paginated;
+  const pageSize = 7;
+  let sortedGames;
+  let sortedGamesLength;
+  let fullFilteredGames;
 
   if (games) {
-    pagesCount = Math.ceil(games.length / pageSize);
-    paginated = paginate(games, currentPage, pageSize);
+    sortedGames = sorting(games, sortProperty)
+      .filter((game) => {
+        if (filterByCategory === "Все жанры") {
+          return game;
+        }
+        return game.genres.includes(filterByCategory);
+      })
+      .filter((game) =>
+        game.title.toLowerCase().includes(filterByName.toLowerCase())
+      );
+    sortedGamesLength = sortedGames.length;
+    fullFilteredGames = paginate(sortedGames, currentPage, pageSize);
   }
 
-  const handlePageChange = (value) => {
+  console.log(sortedGames);
+  const handlePageChange = useCallback((value) => {
     if (value === "forward") {
       setCurrentPage((prev) => prev + 1);
     } else if (value === "back") {
@@ -28,7 +46,7 @@ const Home = () => {
     } else {
       setCurrentPage(value);
     }
-  };
+  }, []);
 
   if (!games) {
     return (
@@ -68,16 +86,18 @@ const Home = () => {
         <Sorting />
       </div>
       <div className={styles.gamesContainer}>
-        {paginated &&
-          paginated.map((game) => <GameCard key={game.id} game={game} />)}
+        {fullFilteredGames &&
+          fullFilteredGames.map((game) => (
+            <GameCard key={game.id} game={game} />
+          ))}
       </div>
-      <div className={styles.pagination}>
-        <Pagination
-          pagesCount={pagesCount}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-        />
-      </div>
+      <Pagination
+        pageSize={pageSize}
+        itemsCount={sortedGamesLength}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+        topMargin={80}
+      />
     </>
   );
 };

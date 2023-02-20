@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addItem } from "../../features/cart/cartSlice";
 import { setFilterByCategory } from "../../features/filters/filtersSlice";
@@ -10,10 +10,6 @@ import styles from "./gamecard.module.scss";
 const GameCard = ({ game }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cartItem = useSelector((state) =>
-    state.cart.items.find((item) => item.id === game.id)
-  );
-  const addedCount = cartItem ? cartItem.count : 0;
 
   const handleCardClick = (id) => {
     navigate(`/game/${id}`);
@@ -39,10 +35,7 @@ const GameCard = ({ game }) => {
       </div>
       <div className={styles.gameOrder}>
         <span className={styles.gamePrice}>{game.price} ₴</span>
-        <OrderButton
-          onClick={() => handleOrderClick(game)}
-          orderCounts={addedCount}
-        />
+        <OrderButton onClick={() => handleOrderClick(game)} game={game} />
       </div>
     </div>
   );

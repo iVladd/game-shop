@@ -1,0 +1,89 @@
+.cartContainer {
+  margin: 40px auto;
+  max-width: 800px;
+  .cartHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f6f6f6;
+    letter-spacing: 0.6px;
+    .cartTitle {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+      font-weight: bold;
+      font-size: 27px;
+    }
+    .cartButton {
+      background-color: transparent;
+      display: flex;
+      gap: 7px;
+      color: #b6b6b6;
+      font-weight: 300;
+      align-items: center;
+      border: none;
+      font-size: 23px;
+      &:hover {
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+        color: black;
+      }
+    }
+  }
+
+  .cartFooter {
+    margin-top: 10px;
+    .orderInfo {
+      display: flex;
+      justify-content: space-between;
+      .totalCountLabel,
+      .totalPriceLabel {
+        font-size: 25px;
+        font-weight: 300;
+      }
+      .totalCountNumber,
+      .totalPriceNumber {
+        font-size: 27px;
+      }
+      .totalPriceNumber {
+        color: rgb(187, 100, 180);
+      }
+    }
+
+    .totalButtonsBlock {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      .totalBackButton {
+        cursor: pointer;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        border: 1px solid #c3c3c3;
+        border-radius: 30px;
+        color: #c3c3c3;
+        padding: 15px 30px;
+        font-size: 17px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: #000;
+          color: #fff;
+        }
+      }
+      .totalOrderButton {
+        cursor: pointer;
+        background-color: rgb(187, 100, 180);
+        border: none;
+        padding: 15px 50px;
+        border-radius: 30px;
+        font-size: 17px;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: darken($color: rgb(187, 100, 180), $amount: 10);
+        }
+      }
+    }
+  }
+}

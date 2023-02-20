@@ -1,0 +1,72 @@
+.cartItemContainer {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 150px 250px 1fr 1fr 1fr;
+  border-bottom: 1px solid #f6f6f6;
+  padding: 15px 0;
+  .gameImage {
+    justify-self: center;
+    width: 100px;
+  }
+  .gameTitle {
+    font-size: 22px;
+    font-weight: bold;
+    justify-self: self-start;
+    margin-left: 30px;
+  }
+  .orderPanel {
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    .orderButton {
+      cursor: pointer;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      border: 2px solid rgb(187, 100, 180);
+      color: rgb(187, 100, 180);
+      svg {
+        fill: black;
+      }
+      &:hover {
+        background-color: rgb(187, 100, 180);
+        color: white;
+      }
+    }
+    .gameCount {
+      margin: 0 15px;
+      font-size: 25px;
+    }
+  }
+  .gamePrice {
+    justify-self: center;
+    font-size: 25px;
+  }
+  .removeGame {
+    cursor: pointer;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid #b6b6b6;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    transition: all 0.15s ease-in-out;
+    svg {
+      display: block;
+      fill: #b6b6b6;
+      width: 40%;
+    }
+    &:hover {
+      background-color: black;
+      border-color: black;
+    }
+  }
+}
