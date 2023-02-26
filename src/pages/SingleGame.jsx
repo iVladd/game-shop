@@ -2,8 +2,8 @@ import React from "react";
 import { Dna } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import GameGenre from "../components/GameGenre";
-import OrderButton from "../components/OrderButton";
+import GameGenre from "../components/UI/GameGenre";
+import OrderButton from "../components/UI/OrderButton";
 import { addItem } from "../features/cart/cartSlice";
 import styles from "../scss/components/singlegame.module.scss";
 

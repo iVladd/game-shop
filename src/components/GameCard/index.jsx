@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addItem } from "../../features/cart/cartSlice";
 import { setFilterByCategory } from "../../features/filters/filtersSlice";
-import GameGenre from "../GameGenre";
-import OrderButton from "../OrderButton";
+import GameGenre from "../UI/GameGenre";
+import OrderButton from "../UI/OrderButton";
 import styles from "./gamecard.module.scss";
 
 const GameCard = ({ game }) => {

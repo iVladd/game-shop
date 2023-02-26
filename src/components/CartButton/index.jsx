@@ -11,8 +11,6 @@ const CartButton = () => {
     state.cart.items.reduce((sum, item) => sum + item.count, 0)
   );
 
-  console.log(totalCount);
-
   return (
     <button className={styles.cartButton} onClick={() => navigate("./cart")}>
       <span className={styles.moneySum}>{totalPrice} ₴</span>

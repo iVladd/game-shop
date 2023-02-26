@@ -37,7 +37,6 @@ const Home = () => {
     fullFilteredGames = paginate(sortedGames, currentPage, pageSize);
   }
 
-  console.log(sortedGames);
   const handlePageChange = useCallback((value) => {
     if (value === "forward") {
       setCurrentPage((prev) => prev + 1);

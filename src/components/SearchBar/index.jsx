@@ -14,7 +14,6 @@ const SearchBar = () => {
   const debouncedDispatch = useMemo(
     () =>
       debounce((e) => {
-        console.log("debounce");
         dispatch(setFilterByName(e.target.value));
       }, 1000),
     [dispatch]

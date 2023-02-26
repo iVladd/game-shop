@@ -1,5 +1,4 @@
 export const sorting = (arr, sortProperty) => {
-  console.log(sortProperty);
   const copiedArr = [...arr];
   switch (sortProperty) {
     case "rating":

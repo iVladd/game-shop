@@ -1,14 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../scss/components/cart.module.scss";
-import {
-  IoCartOutline,
-  IoChevronBackOutline,
-  IoTrashOutline,
-} from "react-icons/io5";
+import { IoCartOutline, IoTrashOutline } from "react-icons/io5";
 import CartItem from "../components/CartItem";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../features/cart/cartSlice";
+import CartEmpty from "../components/CartEmpty";
+import BackButton from "../components/UI/BackButton";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -19,7 +17,7 @@ const Cart = () => {
   console.log(orderedGames, totalPrice);
 
   if (!orderedGames.length) {
-    return <div>Вы еще ничего не заказали</div>;
+    return <CartEmpty />;
   }
 
   return (
@@ -57,14 +55,13 @@ const Cart = () => {
         </div>
 
         <div className={styles.totalButtonsBlock}>
+          <BackButton />
           <button
-            className={styles.totalBackButton}
-            onClick={() => navigate(-1)}
+            className={styles.totalOrderButton}
+            onClick={() => navigate("/order")}
           >
-            <IoChevronBackOutline size={"1.5em"} />
-            Вернуться назад
+            Оплатить сейчас
           </button>
-          <button className={styles.totalOrderButton}>Оплатить сейчас</button>
         </div>
       </footer>
     </div>

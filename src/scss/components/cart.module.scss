@@ -55,22 +55,6 @@
       display: flex;
       justify-content: space-between;
       margin-top: 25px;
-      .totalBackButton {
-        cursor: pointer;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-        border: 1px solid #c3c3c3;
-        border-radius: 30px;
-        color: #c3c3c3;
-        padding: 15px 30px;
-        font-size: 17px;
-        transition: all 0.3s ease-in-out;
-        &:hover {
-          background-color: #000;
-          color: #fff;
-        }
-      }
       .totalOrderButton {
         cursor: pointer;
         background-color: rgb(187, 100, 180);
