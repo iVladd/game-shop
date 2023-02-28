@@ -1,0 +1,25 @@
+.soWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: 50px auto;
+  .soText {
+    max-width: 430px;
+    .soTitle {
+      line-height: 1.3;
+      font-size: 50px;
+      text-align: center;
+    }
+    .soSubTitle {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    .soBackButton {
+      margin: 20px auto;
+    }
+  }
+  .soImage {
+    width: 400px;
+  }
+}

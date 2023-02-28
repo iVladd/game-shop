@@ -14,8 +14,6 @@ const Cart = () => {
   const orderedGames = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
-  console.log(orderedGames, totalPrice);
-
   if (!orderedGames.length) {
     return <CartEmpty />;
   }

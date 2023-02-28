@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilterByCategory } from "../features/filters/filtersSlice";
-import Category from "./Category";
+import { setFilterByCategory } from "../../features/filters/filtersSlice";
+import Category from "../Category";
+import styles from "./categories.module.scss";
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -19,12 +20,7 @@ const Categories = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-      }}
-    >
+    <div className={styles.categoriesWrapper}>
       {Array.from(new Set(categories.flat())).map((category, index) => (
         <Category
           name={category}

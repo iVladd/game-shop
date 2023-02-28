@@ -8,6 +8,7 @@ import styles from "../scss/components/order.module.scss";
 
 const Order = () => {
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSort } from "../../features/filters/filtersSlice";
 import styles from "./sorting.module.scss";
@@ -16,6 +16,19 @@ const Sorting = () => {
   const [isOpen, setIsOpen] = useState(false);
   const activeSort = useSelector((state) => state.filters.sort);
   const dispatch = useDispatch();
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
 
   const handleSortClick = (item) => {
     dispatch(setSort(item));
@@ -32,7 +45,7 @@ const Sorting = () => {
         {activeSort.name}
       </button>
       {isOpen && (
-        <div className={styles.sortPopup}>
+        <div className={styles.sortPopup} ref={ref}>
           <ul className={styles.sortPopupList}>
             {sortList.map((sort, i) => (
               <li
@@ -41,7 +54,6 @@ const Sorting = () => {
                 }`}
                 key={i}
                 onClick={() => handleSortClick(sort)}
-                // className={sortOption.sortProperty === sort.sortProperty ? "active" : ""}
               >
                 {sort.name}
               </li>
