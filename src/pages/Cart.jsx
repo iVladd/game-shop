@@ -22,14 +22,14 @@ const Cart = () => {
     <div className={styles.cartContainer}>
       <header className={styles.cartHeader}>
         <span className={styles.cartTitle}>
-          <IoCartOutline size="1.4em" /> Корзина
+          <IoCartOutline size="1.4em" /> Кошик
         </span>
         <button
           className={styles.cartButton}
           onClick={() => dispatch(clearCart())}
         >
           <IoTrashOutline />
-          Очистить корзину
+          Очистити кошик
         </button>
       </header>
 
@@ -40,14 +40,14 @@ const Cart = () => {
       <footer className={styles.cartFooter}>
         <div className={styles.orderInfo}>
           <div className={styles.totalCountBlock}>
-            <span className={styles.totalCountLabel}>Всего игр: </span>
+            <span className={styles.totalCountLabel}>Всього ігор: </span>
             <span className={styles.totalCountNumber}>
               {orderedGames.reduce((sum, game) => sum + game.count, 0)} шт.
             </span>
           </div>
 
           <div className={styles.totalPriceBlock}>
-            <span className={styles.totalPriceLabel}>Сумма заказа: </span>
+            <span className={styles.totalPriceLabel}>Сума заказу: </span>
             <span className={styles.totalPriceNumber}>{totalPrice} ₴</span>
           </div>
         </div>
@@ -58,7 +58,7 @@ const Cart = () => {
             className={styles.totalOrderButton}
             onClick={() => navigate("/order")}
           >
-            Оплатить сейчас
+            Оплатити зараз
           </button>
         </div>
       </footer>

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   filterByName: "",
-  filterByCategory: "Все жанры",
+  filterByCategory: "Усі жанри",
   sort: { name: "более популярным", sortProperty: "rating" },
 };
 

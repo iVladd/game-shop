@@ -29,53 +29,53 @@ const Order = () => {
   return (
     <form className={styles.orderForm} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.orderFormWrapper}>
-        <h3 className={styles.formTitle}>Оформление заказа</h3>
+        <h3 className={styles.formTitle}>Оформлення заказу</h3>
         <p className={styles.formSubtitle}>
-          Заполните все поля ниже, пожалуйста
+          Заповніть усі поля нижче, будь ласка
         </p>
         <Input
           type="text"
           name="firstName"
-          placeholder="Имя"
+          placeholder="Ім'я"
           errors={errors}
           register={register}
           validationSchema={{
-            required: "Это поле обязательно",
+            required: "Це поле обов'язкове",
             pattern: {
               // eslint-disable-next-line
               value: /^[А-Яа-яA-Za-z\ ]+$/i,
-              message: "Имя не может содержать цифри или символы",
+              message: "Ім'я не може складатися з символів чи цифр",
             },
           }}
         />
         <Input
           type="text"
           name="surname"
-          placeholder="Фамилия"
+          placeholder="Призвіще"
           errors={errors}
           register={register}
           validationSchema={{
-            required: "Это поле обязательно",
+            required: "Це поле обов'язкове",
             pattern: {
               // eslint-disable-next-line
               value: /^[А-Яа-яA-Za-z\ ]+$/i,
-              message: "Фамилия не может содержать цифри или символы",
+              message: "Призвіще не може складатися з символів чи цифр",
             },
           }}
         />
         <Input
           type="text"
           name="credit"
-          placeholder="Номер карты (16 цифр)"
+          placeholder="Номер картки (16 цифр)"
           errors={errors}
           register={register}
           maxLength={16}
           validationSchema={{
-            required: "Это поле обязательно",
-            maxLength: { value: 16, message: "Введите 16 цифр" },
+            required: "Це поле обов'язкове",
+            maxLength: { value: 16, message: "Введіть 16 цифр" },
             pattern: {
               value: /[0-9]{16}/,
-              message: "Введите 16 цифр",
+              message: "Введіть 16 цифр",
             },
           }}
         />
@@ -86,34 +86,34 @@ const Order = () => {
           errors={errors}
           register={register}
           validationSchema={{
-            required: "Это поле обязательно",
+            required: "Це поле обов'язкове",
             pattern: {
               // eslint-disable-next-line
               value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-              message: "Введите корректный адрес почты",
+              message: "Введіть коректну адресу пошти",
             },
           }}
         />
         <Input
           type="tel"
           name="phone"
-          placeholder="Моб. номер (начиная с 0)"
+          placeholder="Моб. номер (починаючи з 0)"
           errors={errors}
           register={register}
           maxLength={10}
           validationSchema={{
-            required: "Это поле обязательно",
+            required: "Це поле обов'язкове",
             pattern: {
               // eslint-disable-next-line
               value: /[0-9]{10}/,
-              message: "Введите корректный номер телефона",
+              message: "Введіть коректний номер телефону",
             },
           }}
         />
 
         <div className={styles.orderTypes}>
           <div className={styles.orderType}>
-            <label htmlFor="orderTypePost">Почтой</label>
+            <label htmlFor="orderTypePost">Поштою</label>
             <input
               type="radio"
               name="orderType"
@@ -125,7 +125,7 @@ const Order = () => {
             />
           </div>
           <div className={styles.orderType}>
-            <label htmlFor="orderTypePost">Адрессная</label>
+            <label htmlFor="orderTypePost">Адресна</label>
             <input
               type="radio"
               name="orderType"
@@ -139,25 +139,25 @@ const Order = () => {
         </div>
         {orderType === "post" && (
           <select name="postCompany" {...register("postCompany")}>
-            <option value="NovaPoshta">Новая почта</option>
+            <option value="NovaPoshta">Нова Пошта</option>
             <option value="Ukrposhta">Укрпочта</option>
           </select>
         )}
         <Input
           type="text"
           name="address"
-          placeholder="Адрес"
+          placeholder="Адреса"
           errors={errors}
           register={register}
           validationSchema={{
-            required: "Это поле обязательно",
+            required: "Це поле обов'язкове",
           }}
         />
 
         <span className={styles.orderTotalPrice}>{totalPrice} ₴</span>
         <div className={styles.orderButtons}>
           <BackButton />
-          <input type="submit" value="Сделать покупку" />
+          <input type="submit" value="Зробити покупку" />
         </div>
       </div>
     </form>

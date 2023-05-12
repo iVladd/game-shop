@@ -6,7 +6,7 @@ import styles from "./categories.module.scss";
 
 const Categories = () => {
   const dispatch = useDispatch();
-  const [categories, setCategories] = useState(["Все жанры"]);
+  const [categories, setCategories] = useState(["Усі жанри"]);
   let games = useSelector((state) => state.games.games[0]);
   const activeCategory = useSelector((state) => state.filters.filterByCategory);
 

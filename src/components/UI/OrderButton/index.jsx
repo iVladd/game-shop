@@ -15,7 +15,7 @@ const OrderButton = ({ onClick, game }) => {
 
   return (
     <button className={styles.gameOrderBtn} onClick={(e) => handleClick(e)}>
-      Добавить в корзину{" "}
+      Додати до кошику{" "}
       {addedCount > 0 && (
         <span className={styles.gameOrderCount}>{addedCount}</span>
       )}

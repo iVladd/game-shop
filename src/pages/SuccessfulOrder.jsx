@@ -16,13 +16,13 @@ const SuccessfulOrder = () => {
   return (
     <div className={styles.soWrapper}>
       <div className={styles.soText}>
-        <h2 className={styles.soTitle}>Ваш заказ успешно оформлен!</h2>
+        <h2 className={styles.soTitle}>Ваше замовлення успішно оформлено!</h2>
         <p className={styles.soSubTitle}>
-          В ближайшее время с Вами свяжется менеджер для уточнения деталей
-          заказа
+          Найближчим часом з Вами зв'яжеться менеджер для уточнення деталей
+          замовлення
         </p>
         <BackButton
-          text="На главную"
+          text="На головну"
           navigation={"/"}
           additionalClass={styles.soBackButton}
         />

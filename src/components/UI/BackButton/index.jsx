@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./backbutton.module.scss";
 
 const BackButton = ({
-  text = "Вернуться назад",
+  text = "Повернутися назад",
   navigation = -1,
   additionalClass = "",
 }) => {

@@ -25,7 +25,7 @@ const Home = () => {
   if (games) {
     sortedGames = sorting(games, sortProperty)
       .filter((game) => {
-        if (filterByCategory === "Все жанры") {
+        if (filterByCategory === "Усі жанри") {
           return game;
         }
         return game.genres.includes(filterByCategory);
