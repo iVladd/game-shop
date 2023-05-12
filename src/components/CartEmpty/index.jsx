@@ -7,13 +7,15 @@ const CartEmpty = () => {
   return (
     <div className={styles.cartEmptyContainer}>
       <div className={styles.cartEmptyInfo}>
-        <h2 className={styles.cartEmptyTitle}>Корзина пустая ¯\_(ツ)_/¯</h2>
+        <h2 className={styles.cartEmptyTitle}>
+          Зараз в кошику нічого нема ¯\_(ツ)_/¯
+        </h2>
         <img
           className={styles.cartEmptyImage}
           src={cartEmptyImg}
           alt="Empty cart"
         />
-        <BackButton text="На главную" navigation={"/"} />
+        <BackButton text="До головної" navigation={"/"} />
       </div>
     </div>
   );

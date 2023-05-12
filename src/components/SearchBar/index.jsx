@@ -35,7 +35,7 @@ const SearchBar = () => {
       <input
         type="text"
         className={styles.searchbarInput}
-        placeholder="Поиск игры"
+        placeholder="Пошук гри"
         value={value}
         onChange={handleChange}
       />

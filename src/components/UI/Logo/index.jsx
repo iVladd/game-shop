@@ -10,7 +10,7 @@ const Logo = () => {
       <img src={logo} alt="Logo img" className={styles.logoImg} />
       <div className={styles.logoText}>
         <p className={styles.logoTitle}>Game Shop</p>
-        <span className={styles.logoSubtitle}>Больше, чем игры</span>
+        <span className={styles.logoSubtitle}>Більше, ніж ігри</span>
       </div>
     </div>
   );
