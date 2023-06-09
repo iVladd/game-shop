@@ -55,7 +55,7 @@ const SingleGame = () => {
           ))}
         </div>
         <div className={styles.gameDescription}>
-          <span className={styles.descriptionLabel}>Description:</span>
+          <span className={styles.descriptionLabel}>Опис:</span>
           <p className={styles.descriptionText}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
             similique, temporibus mollitia aut modi quas earum ex aspernatur
